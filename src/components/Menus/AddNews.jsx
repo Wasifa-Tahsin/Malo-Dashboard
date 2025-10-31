@@ -12,18 +12,12 @@ const AddNews = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setFormData((prev) => ({
-      ...prev,
-      image: file,
-    }));
+    setFormData((prev) => ({ ...prev, image: file }));
   };
 
   const handleSubmit = (e) => {
@@ -32,9 +26,9 @@ const AddNews = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6  ">
+    <div className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-2 sm:gap-0">
         <button className="text-blue-600 font-semibold flex items-center gap-1 hover:underline">
           ← Add News
         </button>
@@ -44,13 +38,11 @@ const AddNews = () => {
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-6">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {/* Left Side */}
-        <div className="col-span-2 flex flex-col gap-4">
+        <div className="sm:col-span-2 flex flex-col gap-4">
           <div>
-            <label className="block text-left text-sm font-semibold mb-1 text-gray-700">
-              Main Title
-            </label>
+            <label className="block text-sm font-semibold mb-1 text-gray-700">Main Title</label>
             <input
               type="text"
               name="mainTitle"
@@ -62,15 +54,13 @@ const AddNews = () => {
           </div>
 
           <div>
-            <label className="block text-left text-sm font-semibold mb-1 text-gray-700">
-              Description
-            </label>
+            <label className="block text-sm font-semibold mb-1 text-gray-700">Description</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
               placeholder="Enter"
-              rows={8}
+              rows={6}
               className="w-full border border-gray-300 rounded px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
@@ -79,35 +69,28 @@ const AddNews = () => {
         {/* Right Side */}
         <div className="flex flex-col gap-4">
           <div>
-            <label className="block text-left text-sm font-semibold mb-1 text-gray-700">
-              Date
-            </label>
+            <label className="block text-sm font-semibold mb-1 text-gray-700">Date</label>
             <input
-              type="number"
+              type="date"
               name="date"
               value={formData.date}
               onChange={handleChange}
-              placeholder="Enter"
               className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
           <div>
-            <label className="block text-left text-sm font-semibold mb-1 text-gray-700">
-              Time
-            </label>
+            <label className="block text-sm font-semibold mb-1 text-gray-700">Time</label>
             <input
-              type="number"
+              type="time"
               name="time"
               value={formData.time}
               onChange={handleChange}
-              placeholder="Enter"
               className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
           <div>
-           
             <label
               htmlFor="imageInput"
               className="w-full h-40 border-2 border-dashed border-gray-400 rounded-md flex flex-col justify-center items-center text-gray-400 cursor-pointer hover:border-blue-400"
@@ -129,16 +112,16 @@ const AddNews = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-auto">
+          <div className="flex flex-col sm:flex-row gap-4 mt-auto">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 flex-1"
             >
               Create
             </button>
             <button
               type="button"
-              className="border border-blue-400 text-blue-400 px-6 py-2 rounded hover:bg-blue-50"
+              className="border border-blue-400 text-blue-400 px-6 py-2 rounded hover:bg-blue-50 flex-1"
             >
               Cancel
             </button>

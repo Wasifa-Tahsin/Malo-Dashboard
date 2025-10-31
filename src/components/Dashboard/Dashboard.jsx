@@ -9,9 +9,10 @@ import HelpCenter from '../ui/HelpCenter';
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col p-4 md:p-6 lg:p-8 bg-gray-50 min-h-screen">
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8 bg-[#FCF7E6] min-h-screen flex flex-col gap-6">
+
       {/* ===== Stats Cards ===== */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <StarsCard title="Total Users" value="852,650" icon={<TbUserShare />} />
         <StarsCard title="Order Completed" value="4,782" icon={<FiBook />} />
         <StarsCard title="Total Income" value="$25,000" icon={<AiOutlineDollarCircle />} />
@@ -19,21 +20,21 @@ const Dashboard = () => {
       </div>
 
       {/* ===== Charts Section ===== */}
-      <div className="flex flex-col lg:flex-row items-stretch gap-6 w-full">
-        {/* Chart Container 1 */}
-        <div className="flex-1 w-full h-[220px] sm:h-[250px] lg:h-[300px]  rounded-xl  p-3">
+      <div className="flex flex-col lg:flex-row gap-4 w-full">
+        {/* Income Chart */}
+        <div className="flex-1 w-full h-64 sm:h-72 md:h-80 lg:h-96 rounded-xl p-2 ">
           <IncomeOverviewChart />
         </div>
 
-        {/* Chart Container 2 */}
-        <div className="flex-1 w-full h-[220px] sm:h-[250px] lg:h-[350px]  rounded-xl  p-3">
+        {/* User Growth Chart */}
+        <div className="flex-1 w-full h-64 sm:h-72 md:h-80 lg:h-102 rounded-xl p-2 ">
           <UserGrowthChart />
         </div>
       </div>
 
-
-      <div>
-        <HelpCenter/>
+      {/* ===== Help Center ===== */}
+      <div className="w-full">
+        <HelpCenter />
       </div>
     </div>
   );

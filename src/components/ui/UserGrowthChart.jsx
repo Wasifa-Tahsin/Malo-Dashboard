@@ -12,7 +12,6 @@ import {
 const UserGrowthChart = () => {
   const [period, setPeriod] = useState('Monthly');
 
-  // Example datasets
   const monthlyData = [
     { month: 'Jan', users: 200 },
     { month: 'Feb', users: 400 },
@@ -36,7 +35,6 @@ const UserGrowthChart = () => {
     { month: '2024', users: 26000 },
   ];
 
-  // Select data based on period
   const data =
     period === 'Monthly'
       ? monthlyData
@@ -45,17 +43,17 @@ const UserGrowthChart = () => {
       : yearlyData;
 
   return (
-    <div className="p-5 rounded-xl bg-white text-gray-800 shadow-md w-full h-full">
-      {/* Header with Select on Right */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg md:text-xl font-bold text-[#0555BF]">
+    <div className="p-4 sm:p-5 md:p-6 rounded-xl bg-white text-gray-800 shadow-md w-full h-full">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2 sm:gap-0">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0555BF]">
           User Growth
         </h2>
 
         <select
           value={period}
           onChange={(e) => setPeriod(e.target.value)}
-          className="bg-white text-black border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none"
+          className="bg-white text-black border border-gray-300 rounded-md px-3 py-1 text-sm sm:text-base focus:outline-none cursor-pointer"
         >
           <option value="Monthly">Monthly</option>
           <option value="Quarterly">Quarterly</option>
@@ -63,8 +61,8 @@ const UserGrowthChart = () => {
         </select>
       </div>
 
-      {/* Tiny Bar Chart */}
-      <div className="w-full h-[220px] sm:h-[250px] lg:h-[300px]">
+      {/* Chart */}
+      <div className="w-full h-[220px] sm:h-[250px] md:h-[280px] lg:h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}

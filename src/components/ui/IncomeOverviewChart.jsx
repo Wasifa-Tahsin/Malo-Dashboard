@@ -10,7 +10,6 @@ import {
 } from 'recharts';
 
 const IncomeOverviewChart = () => {
-  // Example data
   const data2024 = [
     { month: 'Jan', income: 4000 },
     { month: 'Feb', income: 3000 },
@@ -30,14 +29,13 @@ const IncomeOverviewChart = () => {
   ];
 
   const [year, setYear] = useState('2025');
-
   const chartData = year === '2024' ? data2024 : data2025;
 
   return (
-    <div className="p-5 rounded-xl bg-white text-gray-800 shadow-md">
+    <div className="p-4 sm:p-5 md:p-6 rounded-xl bg-white text-gray-800 shadow-md w-full">
       {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg md:text-xl font-bold text-[#0555BF]">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2 sm:gap-0">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0555BF]">
           Income Overview
         </h2>
 
@@ -45,7 +43,7 @@ const IncomeOverviewChart = () => {
         <select
           value={year}
           onChange={(e) => setYear(e.target.value)}
-          className="bg-[#0555BF] text-white rounded-md px-3 py-1 text-sm focus:outline-none cursor-pointer hover:bg-[#0A6BE8] transition"
+          className="bg-[#0555BF] text-white rounded-md px-3 py-1 text-sm sm:text-base focus:outline-none cursor-pointer hover:bg-[#0A6BE8] transition"
         >
           <option value="2025">2025</option>
           <option value="2024">2024</option>
@@ -53,25 +51,16 @@ const IncomeOverviewChart = () => {
       </div>
 
       {/* Chart */}
-      <div className="w-full h-[220px] sm:h-[250px] lg:h-[250px]">
-        <ResponsiveContainer>
+      <div className="w-full h-[220px] sm:h-[250px] md:h-[280px] lg:h-[300px]">
+        <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={chartData}
-            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
           >
             <defs>
-              {/* Blue gradient for area */}
               <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="rgba(5, 85, 191, 1)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="rgba(91, 210, 244, 1)"
-                  stopOpacity={0}
-                />
+                <stop offset="5%" stopColor="rgba(5,85,191,1)" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="rgba(91,210,244,1)" stopOpacity={0} />
               </linearGradient>
             </defs>
 
