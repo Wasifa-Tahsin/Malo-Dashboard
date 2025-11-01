@@ -43,79 +43,54 @@ const UserGrowthChart = () => {
       : yearlyData;
 
   return (
-    <div className="w-full">
-      <div className="p-4 sm:p-5 md:p-6 rounded-xl bg-white text-gray-800 shadow-md w-full h-full">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2 sm:gap-0">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0555BF]">
-            User Growth
-          </h2>
+    <div className="p-4 sm:p-5 md:p-6 rounded-xl bg-white text-gray-800 shadow-md w-full h-full">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2 sm:gap-0">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0555BF]">
+          User Growth
+        </h2>
 
-          <select
-            value={period}
-            onChange={(e) => setPeriod(e.target.value)}
-            className="bg-white text-black border border-gray-300 rounded-md px-3 py-1 text-sm sm:text-base focus:outline-none cursor-pointer"
+        <select
+          value={period}
+          onChange={(e) => setPeriod(e.target.value)}
+          className="bg-white text-black border border-gray-300 rounded-md px-3 py-1 text-sm sm:text-base focus:outline-none cursor-pointer"
+        >
+          <option value="Monthly">Monthly</option>
+          <option value="Quarterly">Quarterly</option>
+          <option value="Yearly">Yearly</option>
+        </select>
+      </div>
+
+      {/* Chart */}
+      <div className="w-full h-[220px] sm:h-[250px] md:h-[280px] lg:h-[300px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            data={data}
+            margin={{ top: 10, right: 20, left: -10, bottom: 5 }}
+            barSize={25}
           >
-            <option value="Monthly">Monthly</option>
-            <option value="Quarterly">Quarterly</option>
-            <option value="Yearly">Yearly</option>
-          </select>
-        </div>
+            <defs>
+              <linearGradient id="barColor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="rgba(5, 85, 191, 1)" stopOpacity={0.9} />
+                <stop offset="95%" stopColor="rgba(91, 210, 244, 1)" stopOpacity={0.5} />
+              </linearGradient>
+            </defs>
 
-        {/* Chart (Scrollable on Mobile) */}
-        <div className="overflow-x-auto">
-          <div className="min-w-[600px] sm:min-w-full h-[220px] sm:h-[250px] md:h-[280px] lg:h-[300px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={data}
-                margin={{ top: 10, right: 20, left: -10, bottom: 5 }}
-                barSize={25}
-              >
-                <defs>
-                  <linearGradient id="barColor" x1="0" y1="0" x2="0" y2="1">
-                    <stop
-                      offset="5%"
-                      stopColor="rgba(5,85,191,1)"
-                      stopOpacity={0.9}
-                    />
-                    <stop
-                      offset="95%"
-                      stopColor="rgba(91,210,244,1)"
-                      stopOpacity={0.5}
-                    />
-                  </linearGradient>
-                </defs>
-
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" />
-                <XAxis
-                  dataKey="month"
-                  stroke="#555"
-                  tick={{ fontSize: 12 }}
-                  axisLine={false}
-                />
-                <YAxis
-                  stroke="#555"
-                  tick={{ fontSize: 12 }}
-                  axisLine={false}
-                />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#ffffff',
-                    color: '#000',
-                    borderRadius: '8px',
-                    border: '1px solid #ccc',
-                  }}
-                  cursor={{ fill: 'rgba(5,85,191,0.1)' }}
-                />
-                <Bar
-                  dataKey="users"
-                  fill="url(#barColor)"
-                  radius={[6, 6, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
+            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" />
+            <XAxis dataKey="month" stroke="#555" tick={{ fontSize: 12 }} axisLine={false} />
+            <YAxis stroke="#555" tick={{ fontSize: 12 }} axisLine={false} />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: '#ffffff',
+                color: '#000',
+                borderRadius: '8px',
+                border: '1px solid #ccc',
+              }}
+              cursor={{ fill: 'rgba(5,85,191,0.1)' }}
+            />
+            <Bar dataKey="users" fill="url(#barColor)" radius={[6, 6, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
