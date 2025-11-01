@@ -38,12 +38,12 @@ const ChangePassword = () => {
 
       {/* Tabs */}
       <div className="flex gap-6 text-lg font-medium mb-6">
-        <Link to="/profile">
+        <Link to="/settings/profile">
           <button className="text-gray-500 hover:text-[#4a95db] pb-1">
             Edit Profile
           </button>
         </Link>
-        <Link to="/changePassword">
+        <Link to="/settings/changePassword">
           <button className="text-[#0555bf] border-b-2 border-[#5bd2f4] pb-1">
             Change Password
           </button>

@@ -27,7 +27,7 @@ const Dashboard = () => {
         </div>
 
         {/* User Growth Chart */}
-        <div className="flex-1 w-full h-64 sm:h-72 md:h-80 lg:h-96 rounded-xl p-2 ">
+        <div className="flex-1 w-full h-64 sm:h-72 md:h-80 lg:h-102 rounded-xl p-2 ">
           <UserGrowthChart />
         </div>
       </div>

@@ -60,7 +60,7 @@ const SideBar = ({ onMenuItemClick }) => {
           </button>
           {settingsOpen && (
             <ul className="ml-6 mt-1 space-y-1">
-              {['/profile','/about-us','/terms','/privacy'].map((link, i) => (
+              {['settings/profile','settings/about-us','settings/terms','settings/privacy'].map((link, i) => (
                 <li key={i}>
                   <NavLink
                     to={link}

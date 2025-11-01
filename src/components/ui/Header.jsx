@@ -9,7 +9,7 @@ import { FiMenu } from 'react-icons/fi';
 
 const Header = ({ toggleSidebar, sidebarOpen }) => {
   return (
-    <header className="container mx-auto bg-white px-4 py-3 flex justify-between items-center">
+    <header className=" bg-white px-8 py-3 flex justify-between items-center">
       {/* Left: Logo + Hamburger (mobile) */}
       <div className="flex items-center gap-4">
         {/* Hamburger menu visible only on mobile */}
