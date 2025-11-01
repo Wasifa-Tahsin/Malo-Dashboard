@@ -12,15 +12,18 @@ import AboutUs from './components/ui/AboutUs.jsx'
 import TermsCondition from './components/ui/TermsCondition.jsx'
 import PrivacyPolicy from './components/ui/PrivacyPolicy.jsx'
 import Notificatons from './components/ui/Notificatons.jsx'
+import ErrorPage from './components/ui/ErrorPage.jsx';
 function App() {
   return (
     <Routes>
       {/* Root layout */}
       <Route path="/" element={<Root />}>
+      
         {/* Default page */}
         <Route index element={<Dashboard />} />
 
         {/* Or other nested routes */}
+        <Route path="*" element={<ErrorPage/>}></Route>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="/notifications" element={<Notificatons />} />
         <Route path="/ads" element={<AdPromotional/>} />
