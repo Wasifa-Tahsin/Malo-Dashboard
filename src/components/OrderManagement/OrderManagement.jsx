@@ -15,7 +15,7 @@ const orders = [
     image: "https://randomuser.me/api/portraits/women/1.jpg",
   },
   {
-    id: "#1233",
+    id: "#1234",
     name: "Jerome Bell",
     date: "12/03/25",
     total: "ZMW 200",
@@ -25,7 +25,7 @@ const orders = [
     image: "https://randomuser.me/api/portraits/men/2.jpg",
   },
   {
-    id: "#1233",
+    id: "#1235",
     name: "Ronald Richards",
     date: "12/03/25",
     total: "ZMW 200",
@@ -35,7 +35,7 @@ const orders = [
     image: "https://randomuser.me/api/portraits/men/3.jpg",
   },
   {
-    id: "#1233",
+    id: "#1236",
     name: "Dianne Russell",
     date: "12/03/25",
     total: "ZMW 200",
@@ -45,7 +45,7 @@ const orders = [
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
-    id: "#1233",
+    id: "#1237",
     name: "Albert Flores",
     date: "12/03/25",
     total: "ZMW 200",
@@ -55,7 +55,7 @@ const orders = [
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
-    id: "#1233",
+    id: "#1238",
     name: "Eleanor Pena",
     date: "12/03/25",
     total: "ZMW 200",
@@ -63,46 +63,6 @@ const orders = [
     paymentStatus: "Paid",
     orderStatus: "In Progress",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-  {
-    id: "#1233",
-    name: "Floyd Miles",
-    date: "12/03/25",
-    total: "ZMW 200",
-    address: "Castleton On Hudson",
-    paymentStatus: "Pending",
-    orderStatus: "Canceled",
-    image: "https://randomuser.me/api/portraits/men/7.jpg",
-  },
-  {
-    id: "#1233",
-    name: "Cody Fisher",
-    date: "12/03/25",
-    total: "ZMW 200",
-    address: "Rockford, IL 61109",
-    paymentStatus: "Paid",
-    orderStatus: "Paid",
-    image: "https://randomuser.me/api/portraits/men/8.jpg",
-  },
-  {
-    id: "#1233",
-    name: "Ralph Edwards",
-    date: "12/03/25",
-    total: "ZMW 200",
-    address: "Anna Maria, FL 346",
-    paymentStatus: "Paid",
-    orderStatus: "Completed",
-    image: "https://randomuser.me/api/portraits/men/9.jpg",
-  },
-  {
-    id: "#1233",
-    name: "Devon Lane",
-    date: "12/03/25",
-    total: "ZMW 200",
-    address: "Mountain View, C 3",
-    paymentStatus: "Pending",
-    orderStatus: "Shipped",
-    image: "https://randomuser.me/api/portraits/women/10.jpg",
   },
 ];
 
@@ -134,25 +94,24 @@ const getOrderBadge = (status) => {
 
 const OrderManagement = () => {
   const [search, setSearch] = useState("");
-
   const filtered = orders.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <section className="w-full min-h-screen bg-[#fffaf1] flex flex-col p-6">
+    <section className="w-full min-h-screen bg-[#fffaf1] flex flex-col p-4 sm:p-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-[18px] font-semibold text-gray-800">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
           Order Management
         </h2>
-        <div className="relative">
+        <div className="relative w-full sm:w-64">
           <input
             type="text"
             placeholder="Search here..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-400 bg-white text-sm"
+            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-400 bg-white text-sm"
           />
           <IoSearchOutline className="absolute left-3 top-2.5 text-gray-500 text-lg" />
         </div>
@@ -160,16 +119,16 @@ const OrderManagement = () => {
 
       {/* Table */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 overflow-x-auto">
-        <table className="w-full text-sm text-left">
+        <table className="w-full min-w-[700px] text-sm text-left">
           <thead>
             <tr className="border-b border-gray-200 text-gray-600">
               <th className="py-3 px-2">Order No.</th>
-              <th className="py-3 px-2">Customer Name</th>
+              <th className="py-3 px-2">Customer</th>
               <th className="py-3 px-2">Date</th>
               <th className="py-3 px-2">Total</th>
-              <th className="py-3 px-2">Shipping Address</th>
-              <th className="py-3 px-2">Payment Status</th>
-              <th className="py-3 px-2">Order Status</th>
+              <th className="py-3 px-2 hidden lg:table-cell">Address</th>
+              <th className="py-3 px-2">Payment</th>
+              <th className="py-3 px-2">Status</th>
               <th className="py-3 px-2 text-center">Action</th>
             </tr>
           </thead>
@@ -177,24 +136,24 @@ const OrderManagement = () => {
             {filtered.map((item, index) => (
               <tr
                 key={index}
-                className="border-b border-gray-100 hover:bg-gray-50"
+                className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
               >
                 <td className="py-3 px-2 text-gray-600">{item.id}</td>
                 <td className="py-3 px-2 flex items-center gap-3">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-8 h-8 rounded-full object-cover"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
                   />
-                  <span className="font-medium text-gray-700">
-                    {item.name}
-                  </span>
+                  <span className="font-medium text-gray-700">{item.name}</span>
                 </td>
                 <td className="py-3 px-2 text-gray-600">{item.date}</td>
                 <td className="py-3 px-2 text-[#1BAE70] font-medium">
                   {item.total}
                 </td>
-                <td className="py-3 px-2 text-gray-600">{item.address}</td>
+                <td className="py-3 px-2 text-gray-600 hidden lg:table-cell">
+                  {item.address}
+                </td>
                 <td className="py-3 px-2">
                   <span
                     className={`border rounded-full px-3 py-1 text-xs font-medium ${getBadgeClasses(
@@ -213,7 +172,7 @@ const OrderManagement = () => {
                     {item.orderStatus}
                   </span>
                 </td>
-                <td className="py-3 px-2 text-center flex gap-2 justify-center">
+                <td className="py-3 px-2 flex justify-center gap-2">
                   <button className="bg-[#0DADEA] hover:bg-[#099cd5] text-white p-2 rounded-md">
                     <FaRegEye size={16} />
                   </button>
@@ -230,7 +189,7 @@ const OrderManagement = () => {
         </table>
 
         {/* Pagination */}
-        <div className="flex justify-center items-center mt-5 gap-3 text-gray-600 text-sm">
+        <div className="flex flex-wrap justify-center items-center mt-5 gap-3 text-gray-600 text-sm">
           <button className="hover:text-blue-500">Previous</button>
           <span className="text-blue-600 font-semibold">2</span>
           <span>, 3, .......... 100</span>

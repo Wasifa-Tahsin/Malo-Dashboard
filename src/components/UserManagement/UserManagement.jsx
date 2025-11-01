@@ -95,19 +95,21 @@ const UserManagement = () => {
   return (
     <section className="w-full min-h-screen bg-[#fffaf1] flex flex-col p-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-[18px] font-semibold text-gray-800">User Management</h2>
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search here..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-400 bg-white text-sm"
-          />
-          <IoSearchOutline className="absolute left-3 top-2.5 text-gray-500 text-lg" />
-        </div>
-      </div>
+       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
+                User Management
+              </h2>
+              <div className="relative w-full sm:w-64">
+                <input
+                  type="text"
+                  placeholder="Search here..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-400 bg-white text-sm"
+                />
+                <IoSearchOutline className="absolute left-3 top-2.5 text-gray-500 text-lg" />
+              </div>
+            </div>
 
       {/* Table */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 overflow-x-auto">

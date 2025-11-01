@@ -13,7 +13,8 @@ import AdPromotionImg from "../../assets/images/AdPromotion.png";
 
 const AdPromotional = () => {
   return (
-    <main className="p-4 md:p-6 lg:p-8">
+    <main className="min-h-screen bg-[#fffaf1] flex flex-col ">
+      <div className=" p-4 md:p-6 lg:p-8">
       {/* Header Section */}
       <div className="flex flex-wrap justify-between items-center gap-3">
         <div className="flex items-center gap-2">
@@ -102,6 +103,7 @@ const AdPromotional = () => {
           <RiDeleteBin6Line className="bg-red-400 text-2xl md:text-3xl p-2 rounded-lg text-white cursor-pointer hover:bg-red-500 transition" />
         </div>
       </div>
+    </div>
     </main>
   );
 };

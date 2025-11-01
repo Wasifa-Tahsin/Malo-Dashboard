@@ -18,6 +18,7 @@ import OrderManagement from './components/OrderManagement/OrderManagement.jsx';
 import Categories from './components/Categories/Categories.jsx';
 import Approval from './components/Approval/Approval.jsx';
 import Support from './components/HelpSupport/Support';
+import FAQ from './components/HelpSupport/FAQ.jsx';
 function App() {
   return (
     <Routes>
@@ -43,10 +44,12 @@ function App() {
         <Route path="/approval" element={<Approval/>} />
         <Route path="settings/profile" element={<EditProfile/>} />
         <Route path="settings/changePassword" element={<ChangePassword/>} />
-        <Route path="settings/changePassword" element={<TermsCondition/>} />
+        <Route path="settings/terms" element={<TermsCondition/>} />
         <Route path="settings/about-us" element={<AboutUs/>} />
         <Route path="settings/privacy" element={<PrivacyPolicy/>} />
+       
         <Route path="/help" element={<Support/>} />
+        <Route path="/faq" element={<FAQ/>} />
         {/* Add more nested routes later, like: */}
         {/* <Route path="profile" element={<EditProfile />} /> */}
       </Route>

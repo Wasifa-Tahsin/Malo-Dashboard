@@ -37,8 +37,8 @@ const SideBar = ({ onMenuItemClick }) => {
               to={item.to}
               onClick={() => onMenuItemClick && onMenuItemClick()} // ✅ Close sidebar on click
               className={({ isActive }) =>
-                `flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 ${
-                  isActive ? 'bg-gray-200 font-semibold' : ''
+                `flex items-center gap-2 p-2 rounded-md hover:bg-blue-200  ${
+                  isActive ? 'bg-[#4ea5df] font-semibold' : ''
                 }`
               }
             >
