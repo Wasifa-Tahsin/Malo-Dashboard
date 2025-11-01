@@ -13,6 +13,11 @@ import TermsCondition from './components/ui/TermsCondition.jsx'
 import PrivacyPolicy from './components/ui/PrivacyPolicy.jsx'
 import Notificatons from './components/ui/Notificatons.jsx'
 import ErrorPage from './components/ui/ErrorPage.jsx';
+import UserManagement from './components/UserManagement/UserManagement.jsx';
+import OrderManagement from './components/OrderManagement/OrderManagement.jsx';
+import Categories from './components/Categories/Categories.jsx';
+import Approval from './components/Approval/Approval.jsx';
+import Support from './components/HelpSupport/Support';
 function App() {
   return (
     <Routes>
@@ -21,21 +26,27 @@ function App() {
       
         {/* Default page */}
         <Route index element={<Dashboard />} />
+        
 
         {/* Or other nested routes */}
         <Route path="*" element={<ErrorPage/>}></Route>
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="/users" element={<UserManagement/>} />
+        <Route path="/orders" element={<OrderManagement/>} />
+        <Route path="/categories" element={<Categories/>} />
         <Route path="/notifications" element={<Notificatons />} />
         <Route path="/ads" element={<AdPromotional/>} />
         <Route path="/news" element={<AddNews/>} />
         <Route path="/posts" element={<AddPost/>} />
         <Route path="/vouchers" element={<AddVoucher/>} />
         <Route path="/events" element={<PostEvent/>} />
+        <Route path="/approval" element={<Approval/>} />
         <Route path="settings/profile" element={<EditProfile/>} />
         <Route path="settings/changePassword" element={<ChangePassword/>} />
         <Route path="settings/changePassword" element={<TermsCondition/>} />
         <Route path="settings/about-us" element={<AboutUs/>} />
         <Route path="settings/privacy" element={<PrivacyPolicy/>} />
+        <Route path="/help" element={<Support/>} />
         {/* Add more nested routes later, like: */}
         {/* <Route path="profile" element={<EditProfile />} /> */}
       </Route>
