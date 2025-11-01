@@ -22,7 +22,7 @@ const Dashboard = () => {
       {/* ===== Charts Section ===== */}
       <div className="flex flex-col lg:flex-row gap-4 w-full">
         {/* Income Chart */}
-        <div className="flex-1 w-full h-64 sm:h-72 md:h-80 lg:h-96 rounded-xl p-2 ">
+        <div className="flex-1 w-full h-64  sm:h-72 md:h-80 lg:h-96 rounded-xl p-2 ">
           <IncomeOverviewChart />
         </div>
 

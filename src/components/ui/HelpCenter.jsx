@@ -17,7 +17,7 @@ const HelpCenter = () => {
       </div>
 
       {/* Table View for medium+ screens */}
-      <div className="hidden sm:block overflow-x-auto">
+      <div className=" overflow-x-auto">
         <table className="min-w-full border-collapse">
           <thead>
             <tr className="text-center text-gray-600 text-sm md:text-base border-b whitespace-nowrap">
@@ -52,7 +52,7 @@ const HelpCenter = () => {
       </div>
 
       {/* Mobile Card View */}
-      <div className="sm:hidden mt-4 space-y-3">
+      {/* <div className="sm:hidden mt-4 space-y-3">
         {tickets.map((item, i) => (
           <div key={i} className="p-3 bg-white rounded-md shadow flex flex-col gap-2">
             <div className="flex justify-between text-gray-600 text-sm">
@@ -78,7 +78,7 @@ const HelpCenter = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };
